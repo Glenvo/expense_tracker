@@ -4,7 +4,10 @@ from .models import get_all_expenses
 def load_expenses_df():
     data = get_all_expenses()
     df = pd.DataFrame(data, columns=["id", "date", "category", "amount", "description"])
-    df["date"] = pd.to_datetime(df["date"])
+
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")  # turn bad dates into NaT
+    df = df.dropna(subset=["date"])  # remove rows where date is invalid (NaT)
+    
     return df
 
 def get_monthly_summary(year, month):

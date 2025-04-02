@@ -6,4 +6,4 @@ A simple local expense tracking app using Python, SQLite, and pandas.
 ✅ View monthly summaries  
 ✅ Compare months with graphs
 
-Coming soon: GUI and income tracking!
+Coming soon: income tracking!

@@ -20,3 +20,9 @@ def init_db():
             );
         """)
         conn.commit()
+
+def drop_expenses_table():
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute("DROP TABLE IF EXISTS expenses;")
+        conn.commit()

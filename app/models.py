@@ -2,6 +2,7 @@ from .db import get_connection
 from datetime import datetime
 
 def add_expense(category, amount, description="", date=None):
+    category = category.strip().capitalize()
     if not date:
         date = datetime.now().strftime("%Y-%m-%d")
 
